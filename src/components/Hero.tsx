@@ -21,8 +21,9 @@ const Hero = () => {
           loop
           playsInline
           className="w-full h-full object-cover"
+          poster="/hero-poster.jpg"
         >
-          <source src="https://cdn.pixabay.com/video/2021/08/03/83768-581108148_large.mp4" type="video/mp4" />
+          <source src="/hero-video.mp4" type="video/mp4" />
           {/* Fallback gradient background */}
         </video>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-blue-900/70"></div>
