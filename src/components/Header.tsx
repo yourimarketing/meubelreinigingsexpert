@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Phone, Mail } from 'lucide-react';
+import { Phone, Mail, Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +20,7 @@ const Header = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMobileMenuOpen(false); // Close mobile menu after navigation
   };
 
   return (
@@ -74,15 +76,70 @@ const Header = () => {
             <Button 
               size="sm" 
               variant="outline"
-              className="flex items-center space-x-2"
+              className="hidden sm:flex items-center space-x-2"
               onClick={() => window.open('tel:+31613003226', '_self')}
             >
               <Phone className="w-4 h-4" />
               <span className="hidden sm:inline">Bel Ons</span>
             </Button>
+            
+            {/* Mobile Menu Button */}
+            <Button
+              variant="outline"
+              size="sm"
+              className="md:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </Button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-200 animate-fade-in">
+          <div className="container mx-auto px-4 py-4">
+            <nav className="space-y-4">
+              <button onClick={() => scrollToSection('home')} className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors py-2">
+                Home
+              </button>
+              <button onClick={() => scrollToSection('diensten')} className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors py-2">
+                Diensten
+              </button>
+              <button onClick={() => scrollToSection('portfolio')} className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors py-2">
+                Portfolio
+              </button>
+              <button onClick={() => scrollToSection('reviews')} className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors py-2">
+                Reviews
+              </button>
+              <button onClick={() => scrollToSection('boek-nu')} className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors py-2">
+                Boek Nu
+              </button>
+              <button onClick={() => scrollToSection('contact')} className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors py-2">
+                Contact
+              </button>
+              
+              <div className="pt-4 border-t border-gray-200 space-y-3">
+                <Button 
+                  className="w-full"
+                  onClick={() => scrollToSection('boek-nu')}
+                >
+                  Offerte Aanvragen
+                </Button>
+                <Button 
+                  variant="outline"
+                  className="w-full"
+                  onClick={() => window.open('tel:+31613003226', '_self')}
+                >
+                  <Phone className="w-4 h-4 mr-2" />
+                  Bel Direct
+                </Button>
+              </div>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

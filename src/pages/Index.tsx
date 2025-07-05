@@ -13,6 +13,7 @@ import Reviews from '@/components/Reviews';
 import FAQ from '@/components/FAQ';
 import ServiceAreas from '@/components/ServiceAreas';
 import Footer from '@/components/Footer';
+import FloatingButtons from '@/components/FloatingButtons';
 
 const Index = () => {
   useEffect(() => {
@@ -95,6 +96,7 @@ const Index = () => {
       <FAQ />
       <ServiceAreas />
       <Footer />
+      <FloatingButtons />
     </div>
   );
 };
