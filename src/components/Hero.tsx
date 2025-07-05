@@ -22,10 +22,14 @@ const Hero = () => {
           playsInline
           className="w-full h-full object-cover"
           poster="/hero-poster.jpg"
+          onError={(e) => {
+            // Hide video if it fails to load
+            e.currentTarget.style.display = 'none';
+          }}
         >
           <source src="/hero-video.mp4" type="video/mp4" />
-          {/* Fallback gradient background */}
         </video>
+        {/* Fallback gradient background - always visible as overlay or backup */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-blue-900/70"></div>
       </div>
       
