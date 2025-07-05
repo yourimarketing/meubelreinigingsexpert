@@ -12,24 +12,31 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-100 overflow-hidden">
-      <div className="absolute inset-0 opacity-30">
-        <div className="w-full h-full bg-repeat animate-float" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.1'%3E%3Cpath d='M40 40c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm20-20c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="https://cdn.pixabay.com/video/2021/08/03/83768-581108148_large.mp4" type="video/mp4" />
+          {/* Fallback gradient background */}
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-blue-900/70"></div>
       </div>
-      
-      <div className="absolute inset-0 bg-gradient-to-t from-blue-600/5 via-transparent to-blue-600/5"></div>
       
       <div className="container mx-auto px-4 py-32 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
             Professionele 
-            <span className="text-blue-600 block">Meubelreiniging</span>
+            <span className="text-blue-300 block">Meubelreiniging</span>
             in Heel Nederland
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-md">
             Vlekken? Geuren? Geef jouw meubels een tweede leven!
           </p>
 
@@ -53,25 +60,25 @@ const Hero = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center space-x-2 text-gray-700">
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              <span>100% Tevredenheidsgarantie</span>
+            <div className="flex items-center justify-center space-x-2 text-white/90">
+              <CheckCircle className="w-5 h-5 text-green-400" />
+              <span className="drop-shadow-sm">100% Tevredenheidsgarantie</span>
             </div>
-            <div className="flex items-center justify-center space-x-2 text-gray-700">
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              <span>Binnen 24 uur afspraak</span>
+            <div className="flex items-center justify-center space-x-2 text-white/90">
+              <CheckCircle className="w-5 h-5 text-green-400" />
+              <span className="drop-shadow-sm">Binnen 24 uur afspraak</span>
             </div>
-            <div className="flex items-center justify-center space-x-2 text-gray-700">
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              <span>Geen voorrijkosten</span>
+            <div className="flex items-center justify-center space-x-2 text-white/90">
+              <CheckCircle className="w-5 h-5 text-green-400" />
+              <span className="drop-shadow-sm">Geen voorrijkosten</span>
             </div>
           </div>
         </div>
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

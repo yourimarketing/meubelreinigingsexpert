@@ -9,19 +9,19 @@ const Portfolio = () => {
       id: 1,
       title: "Bankstel Reiniging - Voor & Na",
       description: "Complete transformatie van een lichtkleurig bankstel met vlekken",
-      image: "/placeholder.svg"
+      image: "/lovable-uploads/d45d549e-dee5-4df5-a570-08b551e79167.png"
     },
     {
       id: 2,
-      title: "Matras Dieptereiniging - Voor & Na",
-      description: "Hygiënische reiniging van een matras met vlekverwijdering",
-      image: "/placeholder.svg"
+      title: "Trapbekleding Reiniging - Voor & Na",
+      description: "Professionele reiniging van trapbekleding met vlekverwijdering",
+      image: "/lovable-uploads/a6147c31-8d70-4180-9379-8fb718137823.png"
     },
     {
       id: 3,
-      title: "Eetkamerstoelen Renovatie - Voor & Na",
-      description: "Professionele reiniging van design eetkamerstoelen",
-      image: "/placeholder.svg"
+      title: "Stoelen Reiniging - Voor & Na",
+      description: "Grondige reiniging van stoelen met zichtbare resultaten",
+      image: "/lovable-uploads/03cdd1ae-9e78-4ecb-b039-a298737fe29f.png"
     }
   ];
 
