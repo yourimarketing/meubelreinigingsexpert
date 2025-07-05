@@ -13,7 +13,17 @@ const Hero = () => {
   return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background with Fallback */}
       <div className="absolute inset-0 w-full h-full">
-        <video autoPlay muted loop playsInline className="w-full h-full object-cover" onLoadStart={() => console.log('Video loading started')} onCanPlay={() => console.log('Video can play')} onError={e => {
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline 
+          controls={false}
+          disablePictureInPicture
+          className="w-full h-full object-cover" 
+          onLoadStart={() => console.log('Video loading started')} 
+          onCanPlay={() => console.log('Video can play')} 
+          onError={e => {
         console.log('Video failed to load, showing fallback background');
         // Hide video if it fails to load and show animated background
         e.currentTarget.style.display = 'none';
