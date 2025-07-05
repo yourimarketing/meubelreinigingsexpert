@@ -1,39 +1,28 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle } from 'lucide-react';
-
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background with Fallback */}
       <div className="absolute inset-0 w-full h-full">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-          onLoadStart={() => console.log('Video loading started')}
-          onCanPlay={() => console.log('Video can play')}
-          onError={(e) => {
-            console.log('Video failed to load, showing fallback background');
-            // Hide video if it fails to load and show animated background
-            e.currentTarget.style.display = 'none';
-            const fallback = e.currentTarget.nextElementSibling?.nextElementSibling as HTMLElement;
-            if (fallback) {
-              fallback.style.display = 'block';
-              console.log('Fallback background activated');
-            }
-          }}
-        >
+        <video autoPlay muted loop playsInline className="w-full h-full object-cover" onLoadStart={() => console.log('Video loading started')} onCanPlay={() => console.log('Video can play')} onError={e => {
+        console.log('Video failed to load, showing fallback background');
+        // Hide video if it fails to load and show animated background
+        e.currentTarget.style.display = 'none';
+        const fallback = e.currentTarget.nextElementSibling?.nextElementSibling as HTMLElement;
+        if (fallback) {
+          fallback.style.display = 'block';
+          console.log('Fallback background activated');
+        }
+      }}>
           <source src="/lovable-uploads/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-blue-900/70"></div>
@@ -57,20 +46,11 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button 
-              size="lg" 
-              className="text-lg px-8 py-4 hover-scale"
-              onClick={() => scrollToSection('boek-nu')}
-            >
+            <Button size="lg" className="text-lg px-8 py-4 hover-scale" onClick={() => scrollToSection('boek-nu')}>
               Vraag Direct een Offerte Aan
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="text-lg px-8 py-4 hover-scale"
-              onClick={() => scrollToSection('portfolio')}
-            >
+            <Button size="lg" variant="outline" className="text-lg px-8 py-4 hover-scale" onClick={() => scrollToSection('portfolio')}>
               Bekijk Resultaten
             </Button>
           </div>
@@ -93,12 +73,8 @@ const Hero = () => {
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
-        </div>
+        
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
