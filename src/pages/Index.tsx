@@ -30,7 +30,7 @@ const Index = () => {
       "@type": "LocalBusiness",
       "name": "Meubelreiniging Expert",
       "image": "https://meubelreiniginsexpert.nl/logo.png",
-      "telephone": "+31-6-12345678",
+      "telephone": "+31-6-13003226",
       "email": "info@meubelreiniginsexpert.nl",
       "address": {
         "@type": "PostalAddress",

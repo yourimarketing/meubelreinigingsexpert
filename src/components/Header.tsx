@@ -75,7 +75,7 @@ const Header = () => {
               size="sm" 
               variant="outline"
               className="flex items-center space-x-2"
-              onClick={() => window.open('tel:+31612345678', '_self')}
+              onClick={() => window.open('tel:+31613003226', '_self')}
             >
               <Phone className="w-4 h-4" />
               <span className="hidden sm:inline">Bel Ons</span>

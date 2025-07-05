@@ -71,13 +71,13 @@ const FAQ = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => window.open('tel:+31612345678', '_self')}
+              onClick={() => window.open('tel:+31613003226', '_self')}
               className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
             >
               Bel Ons Direct
             </button>
             <button 
-              onClick={() => window.open('https://wa.me/31612345678?text=Hallo, ik heb een vraag over meubelreiniging', '_blank')}
+              onClick={() => window.open('https://wa.me/31613003226?text=Hallo, ik heb een vraag over meubelreiniging', '_blank')}
               className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors"
             >
               WhatsApp Ons
