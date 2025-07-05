@@ -9,36 +9,19 @@ const Portfolio = () => {
       id: 1,
       title: "Bankstel Reiniging - Voor & Na",
       description: "Complete transformatie van een lichtkleurig bankstel met vlekken",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg"
+      image: "/placeholder.svg"
     },
     {
       id: 2,
-      title: "Matras Dieptereiniging",
+      title: "Matras Dieptereiniging - Voor & Na",
       description: "Hygiënische reiniging van een matras met vlekverwijdering",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg"
+      image: "/placeholder.svg"
     },
     {
       id: 3,
-      title: "Eetkamerstoelen Renovatie",
+      title: "Eetkamerstoelen Renovatie - Voor & Na",
       description: "Professionele reiniging van design eetkamerstoelen",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg"
-    },
-    {
-      id: 4,
-      title: "Auto-interieur Reiniging",
-      description: "Complete reiniging van leren autostoelen",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg"
-    },
-    {
-      id: 5,
-      title: "Vloerkleed Restauratie",
-      description: "Diepe reiniging van een vintage Perzisch tapijt",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg"
+      image: "/placeholder.svg"
     }
   ];
 
@@ -54,49 +37,29 @@ const Portfolio = () => {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <Carousel className="w-full">
-            <CarouselContent>
-              {portfolioItems.map((item) => (
-                <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3">
-                  <Card className="hover:shadow-lg transition-shadow">
-                    <CardContent className="p-6">
-                      <div className="grid grid-cols-2 gap-4 mb-4">
-                        <div className="relative">
-                          <img 
-                            src={item.beforeImage} 
-                            alt={`Voor - ${item.title}`}
-                            className="w-full h-48 object-cover rounded-lg"
-                          />
-                          <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-sm font-semibold">
-                            VOOR
-                          </div>
-                        </div>
-                        <div className="relative">
-                          <img 
-                            src={item.afterImage} 
-                            alt={`Na - ${item.title}`}
-                            className="w-full h-48 object-cover rounded-lg"
-                          />
-                          <div className="absolute top-2 left-2 bg-green-500 text-white px-2 py-1 rounded text-sm font-semibold">
-                            NA
-                          </div>
-                        </div>
-                      </div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        {item.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {portfolioItems.map((item, index) => (
+            <Card key={item.id} className="hover-scale transition-all duration-500 hover:shadow-xl animate-fade-in" style={{animationDelay: `${index * 0.2}s`}}>
+              <CardContent className="p-6">
+                <div className="relative mb-4">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-64 object-cover rounded-lg"
+                  />
+                  <div className="absolute top-2 left-2 bg-blue-600 text-white px-3 py-1 rounded text-sm font-semibold">
+                    VOOR & NA
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {item.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
         <div className="text-center mt-12">

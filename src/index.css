@@ -99,7 +99,7 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* Fade In Animation */
+  /* Fade In Animation - Enhanced for mobile */
   .animate-fade-in {
     animation: fadeIn 0.8s ease-out both;
   }
@@ -107,11 +107,29 @@ All colors MUST be HSL.
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(40px) scale(0.95);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Mobile specific enhancements */
+  @media (max-width: 768px) {
+    .animate-fade-in {
+      animation: fadeInMobile 1s ease-out both;
+    }
+    
+    @keyframes fadeInMobile {
+      from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
   }
 
@@ -146,13 +164,22 @@ All colors MUST be HSL.
     }
   }
 
-  /* Hover Scale Animation */
+  /* Hover Scale Animation - Enhanced for mobile */
   .hover-scale {
     transition: all 0.3s ease-in-out;
   }
 
   .hover-scale:hover {
-    transform: scale(1.05) translateY(-5px);
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Touch devices */
+  @media (hover: none) {
+    .hover-scale:active {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
   }
 
   /* Floating Animation */
