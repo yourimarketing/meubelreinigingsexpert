@@ -3,6 +3,9 @@ import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
+import HowWeWork from '@/components/HowWeWork';
+import WhatsAppPhotos from '@/components/WhatsAppPhotos';
+import CleaningSteps from '@/components/CleaningSteps';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import BookingSection from '@/components/BookingSection';
 import Portfolio from '@/components/Portfolio';
@@ -82,6 +85,9 @@ const Index = () => {
       <Header />
       <Hero />
       <Services />
+      <HowWeWork />
+      <WhatsAppPhotos />
+      <CleaningSteps />
       <WhyChooseUs />
       <BookingSection />
       <Portfolio />

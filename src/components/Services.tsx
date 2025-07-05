@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Services = () => {
-  const services = [
+const services = [
     {
       title: "Bankstel Reinigen",
       description: "Professionele reiniging van alle soorten bankstellen en hoekbanken",
@@ -30,9 +30,19 @@ const Services = () => {
       icon: "🛏️"
     },
     {
+      title: "Huisreiniging",
+      description: "Complete huisreiniging inclusief meubels en stoffering",
+      icon: "🏡"
+    },
+    {
       title: "Commerciële Reiniging",
       description: "Professionele reiniging voor hotels, kantoren en bedrijven",
       icon: "🏢"
+    },
+    {
+      title: "Geurbehandeling",
+      description: "Specialistische behandeling tegen geuren en bacteriën",
+      icon: "🌸"
     }
   ];
 
@@ -52,16 +62,17 @@ const Services = () => {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="hover-scale transition-all duration-300 hover:shadow-lg group cursor-pointer"
+              className="hover-scale transition-all duration-500 hover:shadow-xl group cursor-pointer animate-fade-in bg-gradient-to-br from-white to-blue-50 hover:from-blue-50 hover:to-white border-2 hover:border-blue-200"
+              style={{animationDelay: `${index * 0.1}s`}}
             >
               <CardContent className="p-8 text-center">
-                <div className="text-6xl mb-4 group-hover:animate-bounce">
+                <div className="text-6xl mb-4 group-hover:animate-bounce transition-transform duration-300 group-hover:scale-110">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
                   {service.description}
                 </p>
               </CardContent>
