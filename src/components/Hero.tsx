@@ -21,15 +21,17 @@ const Hero = () => {
           loop
           playsInline
           className="w-full h-full object-cover"
-          poster="/hero-poster.jpg"
           onLoadStart={() => console.log('Video loading started')}
           onCanPlay={() => console.log('Video can play')}
           onError={(e) => {
-            console.log('Video error:', e);
+            console.log('Video failed to load, showing fallback background');
             // Hide video if it fails to load and show animated background
             e.currentTarget.style.display = 'none';
             const fallback = e.currentTarget.nextElementSibling?.nextElementSibling as HTMLElement;
-            if (fallback) fallback.style.display = 'block';
+            if (fallback) {
+              fallback.style.display = 'block';
+              console.log('Fallback background activated');
+            }
           }}
         >
           <source src="/hero-video.mp4" type="video/mp4" />
