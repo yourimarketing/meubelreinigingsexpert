@@ -34,7 +34,7 @@ const Hero = () => {
             }
           }}
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="/lovable-uploads/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-blue-900/70"></div>
         {/* Animated fallback background - hidden by default */}
