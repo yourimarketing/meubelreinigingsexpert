@@ -22,7 +22,10 @@ const Hero = () => {
           playsInline
           className="w-full h-full object-cover"
           poster="/hero-poster.jpg"
+          onLoadStart={() => console.log('Video loading started')}
+          onCanPlay={() => console.log('Video can play')}
           onError={(e) => {
+            console.log('Video error:', e);
             // Hide video if it fails to load and show animated background
             e.currentTarget.style.display = 'none';
             const fallback = e.currentTarget.nextElementSibling?.nextElementSibling as HTMLElement;
