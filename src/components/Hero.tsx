@@ -13,11 +13,30 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
+      {/* Video Background with Fallback */}
       <div className="absolute inset-0 w-full h-full">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 animate-pulse"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-transparent to-blue-400/30 animate-float"></div>
-        <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-blue-700/10 to-blue-800/40"></div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+          poster="/hero-poster.jpg"
+          onError={(e) => {
+            // Hide video if it fails to load and show animated background
+            e.currentTarget.style.display = 'none';
+            const fallback = e.currentTarget.nextElementSibling?.nextElementSibling as HTMLElement;
+            if (fallback) fallback.style.display = 'block';
+          }}
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-blue-900/70"></div>
+        {/* Animated fallback background - hidden by default */}
+        <div className="absolute inset-0 hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-transparent to-blue-400/30 animate-float"></div>
+        </div>
       </div>
       
       <div className="container mx-auto px-4 py-32 relative z-10">
