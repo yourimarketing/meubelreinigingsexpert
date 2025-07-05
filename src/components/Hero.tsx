@@ -13,24 +13,11 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
+      {/* Animated Background */}
       <div className="absolute inset-0 w-full h-full">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-          poster="/hero-poster.jpg"
-          onError={(e) => {
-            // Hide video if it fails to load
-            e.currentTarget.style.display = 'none';
-          }}
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
-        {/* Fallback gradient background - always visible as overlay or backup */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-blue-900/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 animate-pulse"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-transparent to-blue-400/30 animate-float"></div>
+        <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-blue-700/10 to-blue-800/40"></div>
       </div>
       
       <div className="container mx-auto px-4 py-32 relative z-10">
