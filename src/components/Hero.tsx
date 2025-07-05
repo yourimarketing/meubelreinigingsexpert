@@ -18,9 +18,9 @@ const Hero = () => {
           muted 
           loop 
           playsInline 
-          controls={false}
           disablePictureInPicture
-          className="w-full h-full object-cover" 
+          className="w-full h-full object-cover"
+          style={{ pointerEvents: 'none' }}
           onLoadStart={() => console.log('Video loading started')} 
           onCanPlay={() => console.log('Video can play')} 
           onError={e => {
