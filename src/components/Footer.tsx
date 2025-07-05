@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Phone, Mail } from 'lucide-react';
-
 const Footer = () => {
-  return (
-    <footer id="contact" className="bg-gray-900 text-white py-16">
+  return <footer id="contact" className="bg-gray-900 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
@@ -20,7 +17,7 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
-                <span>06 - 12 34 56 78</span>
+                <span>+316 13 00 32 26</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
@@ -44,22 +41,15 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Snel Contact</h3>
             <div className="space-y-4">
-              <button 
-                onClick={() => window.open('tel:+31612345678', '_self')}
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
-              >
+              <button onClick={() => window.open('tel:+31612345678', '_self')} className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
                 Direct Bellen
               </button>
-              <button 
-                onClick={() => window.open('https://wa.me/31612345678?text=Hallo, ik wil graag een offerte voor meubelreiniging', '_blank')}
-                className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors"
-              >
+              <button onClick={() => window.open('https://wa.me/31612345678?text=Hallo, ik wil graag een offerte voor meubelreiniging', '_blank')} className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
                 WhatsApp
               </button>
-              <button 
-                onClick={() => document.getElementById('boek-nu')?.scrollIntoView({ behavior: 'smooth' })}
-                className="w-full border border-white text-white py-2 px-4 rounded-lg hover:bg-white hover:text-gray-900 transition-colors"
-              >
+              <button onClick={() => document.getElementById('boek-nu')?.scrollIntoView({
+              behavior: 'smooth'
+            })} className="w-full border border-white text-white py-2 px-4 rounded-lg hover:bg-white hover:text-gray-900 transition-colors">
                 Offerte Aanvragen
               </button>
             </div>
@@ -89,8 +79,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
