@@ -58,8 +58,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Bedrijfsinfo</h3>
             <div className="space-y-2 text-gray-400 text-sm">
-              <p>KvK: 12345678</p>
-              <p>BTW: NL123456789B01</p>
+              
+              
               <p>Verzekerd & Gecertificeerd</p>
               <p>100% Tevredenheidsgarantie</p>
             </div>
@@ -68,9 +68,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 Meubelreiniging Expert. Alle rechten voorbehouden.
-            </div>
+            <div className="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Meubelreiniging Expert. Alle rechten voorbehouden.</div>
             <div className="flex space-x-4 text-sm text-gray-400">
               <a href="#" className="hover:text-white transition-colors">Privacyverklaring</a>
               <a href="#" className="hover:text-white transition-colors">Algemene Voorwaarden</a>
