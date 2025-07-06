@@ -82,6 +82,60 @@ const Portfolio = () => {
       title: "Modulaire Bank Reiniging",
       description: "Complete reiniging van modulaire bank met perfecte resultaten",
       image: "/lovable-uploads/55273858-294e-4ee2-a0f2-49df481a4029.png"
+    },
+    {
+      id: 14,
+      title: "Leren Bank Vlekverwijdering",
+      description: "Spectaculaire transformatie van leren bank met diepe vlekken",
+      image: "/lovable-uploads/588e0438-b43b-4552-87ca-fd5481365b56.png"
+    },
+    {
+      id: 15,
+      title: "Grijze Bank Dieptereiniging",
+      description: "Professionele reiniging van grijze bank met uitstekende resultaten",
+      image: "/lovable-uploads/8066124f-23ba-493e-b577-7c8cba59d010.png"
+    },
+    {
+      id: 16,
+      title: "Gestoffeerde Bank Reiniging",
+      description: "Complete restauratie van gestoffeerde bank met vlekken",
+      image: "/lovable-uploads/71450b4e-2114-4adc-b518-bfaf57e2aa38.png"
+    },
+    {
+      id: 17,
+      title: "Hoekbank Vlekbehandeling",
+      description: "Effectieve behandeling van hardnekkige vlekken in hoekbank",
+      image: "/lovable-uploads/04b13c4c-89f3-4340-814e-1e5a8e631c4b.png"
+    },
+    {
+      id: 18,
+      title: "Tweezitsbank Reiniging",
+      description: "Grondige reiniging van tweezitsbank met zichtbare verbetering",
+      image: "/lovable-uploads/492c4a77-e78e-49e9-97e5-00c587f36e0c.png"
+    },
+    {
+      id: 19,
+      title: "Blauwgrijze Bank Transformatie",
+      description: "Complete transformatie van blauwgrijze bank met vlekken",
+      image: "/lovable-uploads/81c02fea-84ba-4259-94be-9baa998f92b8.png"
+    },
+    {
+      id: 20,
+      title: "Bankstel Detailreiniging",
+      description: "Professionele detailreiniging van bankstel met perfecte afwerking",
+      image: "/lovable-uploads/311ee17d-fbd4-4934-b906-fcc35b1a8d57.png"
+    },
+    {
+      id: 21,
+      title: "Stoelkussen Vlekverwijdering",
+      description: "Effectieve verwijdering van vlekken uit stoelkussens",
+      image: "/lovable-uploads/0cf2c366-96f1-480c-83e0-64f7edcf13f6.png"
+    },
+    {
+      id: 22,
+      title: "Hoekzit Dieptereiniging",
+      description: "Intensieve reiniging van hoekzit met uitstekend eindresultaat",
+      image: "/lovable-uploads/e04bf164-fa6c-4423-881d-07447ff1f6d7.png"
     }
   ];
 

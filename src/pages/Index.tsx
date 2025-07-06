@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle, Star } from 'lucide-react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import Reviews from '@/components/Reviews';
 import Footer from '@/components/Footer';
 import FloatingButtons from '@/components/FloatingButtons';
 
@@ -226,6 +227,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Reviews Section */}
+      <Reviews />
 
       <Footer />
       <FloatingButtons />
