@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -11,12 +10,10 @@ import FloatingButtons from '@/components/FloatingButtons';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 import FAQ from '@/components/FAQ';
 import SkipToContent from '@/components/SkipToContent';
-
 const Index = () => {
   useEffect(() => {
     // SEO meta tags
     document.title = "Meubelreiniging door Experts | Heel Nederland | Meubelreiniginsexpert.nl";
-    
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Professionele meubelreiniging in heel Nederland. Bank, stoel of matras laten reinigen? Vraag direct een offerte aan. Binnen 24 uur geholpen!');
@@ -51,69 +48,58 @@ const Index = () => {
         "bestRating": "5",
         "worstRating": "1"
       },
-      "openingHours": [
-        "Mo-Fr 08:00-18:00",
-        "Sa 09:00-17:00"
-      ],
+      "openingHours": ["Mo-Fr 08:00-18:00", "Sa 09:00-17:00"],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Meubelreiniging Diensten",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Bankstel reinigen",
-              "description": "Professionele dieptereiniging van banken en fauteuils"
-            },
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "minPrice": "85",
-              "priceCurrency": "EUR"
-            }
+        "itemListElement": [{
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Bankstel reinigen",
+            "description": "Professionele dieptereiniging van banken en fauteuils"
           },
-          {
-            "@type": "Offer", 
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Stoel reinigen",
-              "description": "Grondige reiniging van eetkamerstoelen en bureaustoelen"
-            },
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "minPrice": "35",
-              "priceCurrency": "EUR"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service", 
-              "name": "Matras reinigen",
-              "description": "Hygiënische matras reiniging voor een gezonde nachtrust"
-            },
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "minPrice": "75",
-              "priceCurrency": "EUR"
-            }
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "85",
+            "priceCurrency": "EUR"
           }
-        ]
+        }, {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Stoel reinigen",
+            "description": "Grondige reiniging van eetkamerstoelen en bureaustoelen"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "35",
+            "priceCurrency": "EUR"
+          }
+        }, {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Matras reinigen",
+            "description": "Hygiënische matras reiniging voor een gezonde nachtrust"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "75",
+            "priceCurrency": "EUR"
+          }
+        }]
       }
     };
-
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.text = JSON.stringify(structuredData);
     document.head.appendChild(script);
-
     return () => {
       document.head.removeChild(script);
     };
   }, []);
-
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       <SkipToContent />
       <Header />
       <main id="main-content">
@@ -130,20 +116,14 @@ const Index = () => {
           </div>
           
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden" style={{ aspectRatio: '16/10' }}>
-              <BeforeAfterSlider
-                beforeImage="/lovable-uploads/cea1426b-7648-4063-acc7-68834848b896.png"
-                afterImage="/lovable-uploads/4858c318-6195-4a05-a415-e63cbb915453.png"
-                beforeAlt="Vieze bank voor reiniging"
-                afterAlt="Schone bank na professionele reiniging"
-                className="h-full"
-              />
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden" style={{
+              aspectRatio: '16/10'
+            }}>
+              <BeforeAfterSlider beforeImage="/lovable-uploads/cea1426b-7648-4063-acc7-68834848b896.png" afterImage="/lovable-uploads/4858c318-6195-4a05-a415-e63cbb915453.png" beforeAlt="Vieze bank voor reiniging" afterAlt="Schone bank na professionele reiniging" className="h-full" />
             </div>
             
             <div className="text-center mt-8">
-              <p className="text-lg text-gray-600 mb-6">
-                Dit resultaat behaald met onze professionele dieptereiniging
-              </p>
+              <p className="text-lg text-gray-600 mb-6">Dit resultaat behaald U met onze professionele dieptereiniging</p>
     <Link to="/contact">
       <Button size="lg" variant="cta" className="text-lg px-8 py-4">
         Vraag Direct een Offerte Aan
@@ -311,8 +291,6 @@ const Index = () => {
       </main>
       <Footer />
       <FloatingButtons />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
