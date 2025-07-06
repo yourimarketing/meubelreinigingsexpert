@@ -4,36 +4,14 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 const Hero = () => {
   return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background with Fallback */}
+      {/* Before/After Image Background */}
       <div className="absolute inset-0 w-full h-full">
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
-          disablePictureInPicture
+        <img 
+          src="/lovable-uploads/d1887f92-2a56-4036-8d03-bb4ffda48117.png" 
+          alt="Before and After meubelreiniging resultaten"
           className="w-full h-full object-cover"
-          style={{ pointerEvents: 'none' }}
-          onLoadStart={() => console.log('Video loading started')} 
-          onCanPlay={() => console.log('Video can play')} 
-          onError={e => {
-        console.log('Video failed to load, showing fallback background');
-        // Hide video if it fails to load and show animated background
-        e.currentTarget.style.display = 'none';
-        const fallback = e.currentTarget.nextElementSibling?.nextElementSibling as HTMLElement;
-        if (fallback) {
-          fallback.style.display = 'block';
-          console.log('Fallback background activated');
-        }
-      }}>
-          <source src="/lovable-uploads/hero-video.mp4" type="video/mp4" />
-        </video>
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-blue-900/70"></div>
-        {/* Animated fallback background - hidden by default */}
-        <div className="absolute inset-0 hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 animate-pulse"></div>
-          <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-transparent to-blue-400/30 animate-float"></div>
-        </div>
       </div>
       
       <div className="container mx-auto px-4 py-32 relative z-10">
