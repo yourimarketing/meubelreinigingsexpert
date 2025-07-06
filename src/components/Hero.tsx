@@ -7,7 +7,7 @@ const Hero = () => {
       {/* Before/After Image Background */}
       <div className="absolute inset-0 w-full h-full">
         <img 
-          src="/lovable-uploads/d1887f92-2a56-4036-8d03-bb4ffda48117.png" 
+          src="/lovable-uploads/faafa669-0210-4fb8-ab8f-dba18ca5228f.png" 
           alt="Before and After meubelreiniging resultaten"
           className="w-full h-full object-cover"
         />
