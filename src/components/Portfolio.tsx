@@ -9,7 +9,7 @@ const Portfolio = () => {
       id: 1,
       title: "Bankstel Reiniging - Voor & Na",
       description: "Complete transformatie van een lichtkleurig bankstel met vlekken",
-      image: "/lovable-uploads/d45d549e-dee5-4df5-a570-08b551e79167.png"
+      image: "/lovable-uploads/7b20d1da-b569-4f61-8cdf-4fedbfe84b27.png"
     },
     {
       id: 2,
