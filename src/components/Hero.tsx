@@ -6,10 +6,17 @@ const Hero = () => {
   return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Hero Background with Logo */}
       <div className="absolute inset-0 w-full h-full">
+        {/* Desktop Logo */}
         <img 
           src="/lovable-uploads/45a4b36a-44c1-4aba-abf1-2f8d1bb86210.png" 
           alt="Meubel Reiniging Expert Logo"
-          className="w-full h-full object-cover"
+          className="hidden md:block w-full h-full object-cover"
+        />
+        {/* Mobile Logo */}
+        <img 
+          src="/lovable-uploads/26211235-f28a-4966-9e74-9dcd875a63a5.png" 
+          alt="Meubel Reiniging Expert Logo"
+          className="block md:hidden w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-blue-800/30 to-blue-900/40"></div>
       </div>
