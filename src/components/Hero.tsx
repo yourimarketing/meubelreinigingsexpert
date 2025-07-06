@@ -4,14 +4,14 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 const Hero = () => {
   return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Before/After Image Background */}
+      {/* Hero Background with Logo */}
       <div className="absolute inset-0 w-full h-full">
         <img 
-          src="/lovable-uploads/631f88af-c9d4-4d88-be7f-5c5314ec3714.png" 
-          alt="Before and After meubelreiniging resultaten"
-          className="w-full h-full object-cover object-center"
+          src="/lovable-uploads/373ec8d4-2088-4464-9c71-cd08a148db35.png" 
+          alt="Meubel Reiniging Expert Logo"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-blue-900/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-blue-800/30 to-blue-900/40"></div>
       </div>
       
       <div className="container mx-auto px-4 py-32 relative z-10">
