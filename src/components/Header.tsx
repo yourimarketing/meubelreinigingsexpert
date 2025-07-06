@@ -27,47 +27,47 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg' : 'bg-white/90 backdrop-blur-sm'
+      isScrolled ? 'bg-gray-800 shadow-lg' : 'bg-gray-800/95 backdrop-blur-sm'
     }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/c71f8de9-2143-4b03-9c73-ff0d62c9fec3.png" 
+              src="/lovable-uploads/8f9b5045-d8a4-4429-9063-896083ce9c7d.png" 
               alt="Meubelreiniging Expert Logo" 
               className="w-12 h-12 object-contain"
             />
-            <span className="text-2xl font-bold text-gray-900">Meubelreiniging Expert</span>
+            <span className="text-2xl font-bold text-white">Meubelreiniging Expert</span>
           </div>
 
           <nav className="hidden md:flex items-center space-x-8">
             <Link 
               to="/" 
-              className={`transition-colors ${isActive('/') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              className={`transition-colors ${isActive('/') ? 'text-blue-400 font-semibold' : 'text-white hover:text-blue-400'}`}
             >
               Home
             </Link>
             <Link 
               to="/diensten" 
-              className={`transition-colors ${isActive('/diensten') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              className={`transition-colors ${isActive('/diensten') ? 'text-blue-400 font-semibold' : 'text-white hover:text-blue-400'}`}
             >
               Diensten
             </Link>
             <Link 
               to="/portfolio" 
-              className={`transition-colors ${isActive('/portfolio') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              className={`transition-colors ${isActive('/portfolio') ? 'text-blue-400 font-semibold' : 'text-white hover:text-blue-400'}`}
             >
               Portfolio
             </Link>
             <Link 
               to="/over-ons" 
-              className={`transition-colors ${isActive('/over-ons') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              className={`transition-colors ${isActive('/over-ons') ? 'text-blue-400 font-semibold' : 'text-white hover:text-blue-400'}`}
             >
               Over Ons
             </Link>
             <Link 
               to="/contact" 
-              className={`transition-colors ${isActive('/contact') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              className={`transition-colors ${isActive('/contact') ? 'text-blue-400 font-semibold' : 'text-white hover:text-blue-400'}`}
             >
               Contact
             </Link>
@@ -116,46 +116,46 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 animate-fade-in">
+        <div className="md:hidden bg-gray-800 border-t border-gray-600 animate-fade-in">
           <div className="container mx-auto px-4 py-4">
             <nav className="space-y-4">
               <Link 
                 to="/" 
                 onClick={closeMobileMenu}
-                className={`block w-full text-left transition-colors py-2 ${isActive('/') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+                className={`block w-full text-left transition-colors py-2 ${isActive('/') ? 'text-blue-400 font-semibold' : 'text-white hover:text-blue-400'}`}
               >
                 Home
               </Link>
               <Link 
                 to="/diensten" 
                 onClick={closeMobileMenu}
-                className={`block w-full text-left transition-colors py-2 ${isActive('/diensten') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+                className={`block w-full text-left transition-colors py-2 ${isActive('/diensten') ? 'text-blue-400 font-semibold' : 'text-white hover:text-blue-400'}`}
               >
                 Diensten
               </Link>
               <Link 
                 to="/portfolio" 
                 onClick={closeMobileMenu}
-                className={`block w-full text-left transition-colors py-2 ${isActive('/portfolio') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+                className={`block w-full text-left transition-colors py-2 ${isActive('/portfolio') ? 'text-blue-400 font-semibold' : 'text-white hover:text-blue-400'}`}
               >
                 Portfolio
               </Link>
               <Link 
                 to="/over-ons" 
                 onClick={closeMobileMenu}
-                className={`block w-full text-left transition-colors py-2 ${isActive('/over-ons') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+                className={`block w-full text-left transition-colors py-2 ${isActive('/over-ons') ? 'text-blue-400 font-semibold' : 'text-white hover:text-blue-400'}`}
               >
                 Over Ons
               </Link>
               <Link 
                 to="/contact" 
                 onClick={closeMobileMenu}
-                className={`block w-full text-left transition-colors py-2 ${isActive('/contact') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+                className={`block w-full text-left transition-colors py-2 ${isActive('/contact') ? 'text-blue-400 font-semibold' : 'text-white hover:text-blue-400'}`}
               >
                 Contact
               </Link>
               
-              <div className="pt-4 border-t border-gray-200 space-y-3">
+              <div className="pt-4 border-t border-gray-600 space-y-3">
                 <Link to="/contact" onClick={closeMobileMenu}>
                   <Button className="w-full">
                     Offerte Aanvragen
