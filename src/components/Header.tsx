@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,12 +17,12 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMobileMenuOpen(false); // Close mobile menu after navigation
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
   };
 
   return (
@@ -37,42 +39,56 @@ const Header = () => {
           </div>
 
           <nav className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-blue-600 transition-colors">
+            <Link 
+              to="/" 
+              className={`transition-colors ${isActive('/') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+            >
               Home
-            </button>
-            <button onClick={() => scrollToSection('diensten')} className="text-gray-700 hover:text-blue-600 transition-colors">
+            </Link>
+            <Link 
+              to="/diensten" 
+              className={`transition-colors ${isActive('/diensten') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+            >
               Diensten
-            </button>
-            <button onClick={() => scrollToSection('portfolio')} className="text-gray-700 hover:text-blue-600 transition-colors">
+            </Link>
+            <Link 
+              to="/portfolio" 
+              className={`transition-colors ${isActive('/portfolio') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+            >
               Portfolio
-            </button>
-            <button onClick={() => scrollToSection('reviews')} className="text-gray-700 hover:text-blue-600 transition-colors">
-              Reviews
-            </button>
-            <button onClick={() => scrollToSection('boek-nu')} className="text-gray-700 hover:text-blue-600 transition-colors">
-              Boek Nu
-            </button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-blue-600 transition-colors">
+            </Link>
+            <Link 
+              to="/over-ons" 
+              className={`transition-colors ${isActive('/over-ons') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+            >
+              Over Ons
+            </Link>
+            <Link 
+              to="/contact" 
+              className={`transition-colors ${isActive('/contact') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+            >
               Contact
-            </button>
+            </Link>
           </nav>
 
           <div className="flex items-center space-x-4">
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={() => scrollToSection('boek-nu')}
-              className="hidden sm:flex"
-            >
-              Offerte Aanvragen
-            </Button>
-            <Button 
-              size="sm"
-              onClick={() => scrollToSection('boek-nu')}
-              className="hidden sm:flex"
-            >
-              Direct Boeken
-            </Button>
+            <Link to="/contact">
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="hidden sm:flex"
+              >
+                Offerte Aanvragen
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button 
+                size="sm"
+                className="hidden sm:flex"
+              >
+                Direct Boeken
+              </Button>
+            </Link>
             <Button 
               size="sm" 
               variant="outline"
@@ -101,32 +117,48 @@ const Header = () => {
         <div className="md:hidden bg-white border-t border-gray-200 animate-fade-in">
           <div className="container mx-auto px-4 py-4">
             <nav className="space-y-4">
-              <button onClick={() => scrollToSection('home')} className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors py-2">
+              <Link 
+                to="/" 
+                onClick={closeMobileMenu}
+                className={`block w-full text-left transition-colors py-2 ${isActive('/') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              >
                 Home
-              </button>
-              <button onClick={() => scrollToSection('diensten')} className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors py-2">
+              </Link>
+              <Link 
+                to="/diensten" 
+                onClick={closeMobileMenu}
+                className={`block w-full text-left transition-colors py-2 ${isActive('/diensten') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              >
                 Diensten
-              </button>
-              <button onClick={() => scrollToSection('portfolio')} className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors py-2">
+              </Link>
+              <Link 
+                to="/portfolio" 
+                onClick={closeMobileMenu}
+                className={`block w-full text-left transition-colors py-2 ${isActive('/portfolio') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              >
                 Portfolio
-              </button>
-              <button onClick={() => scrollToSection('reviews')} className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors py-2">
-                Reviews
-              </button>
-              <button onClick={() => scrollToSection('boek-nu')} className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors py-2">
-                Boek Nu
-              </button>
-              <button onClick={() => scrollToSection('contact')} className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors py-2">
+              </Link>
+              <Link 
+                to="/over-ons" 
+                onClick={closeMobileMenu}
+                className={`block w-full text-left transition-colors py-2 ${isActive('/over-ons') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              >
+                Over Ons
+              </Link>
+              <Link 
+                to="/contact" 
+                onClick={closeMobileMenu}
+                className={`block w-full text-left transition-colors py-2 ${isActive('/contact') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              >
                 Contact
-              </button>
+              </Link>
               
               <div className="pt-4 border-t border-gray-200 space-y-3">
-                <Button 
-                  className="w-full"
-                  onClick={() => scrollToSection('boek-nu')}
-                >
-                  Offerte Aanvragen
-                </Button>
+                <Link to="/contact" onClick={closeMobileMenu}>
+                  <Button className="w-full">
+                    Offerte Aanvragen
+                  </Button>
+                </Link>
                 <Button 
                   variant="outline"
                   className="w-full"
