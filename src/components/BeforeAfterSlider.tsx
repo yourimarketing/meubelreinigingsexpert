@@ -20,8 +20,13 @@ const BeforeAfterSlider = ({
 
   return (
     <div className={`relative w-full h-full ${className}`}>
-      {/* Before Image (Background) */}
-      <div className="absolute inset-0">
+      {/* Before Image (Left side) */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          clipPath: `inset(0 ${100 - sliderValue[0]}% 0 0)`
+        }}
+      >
         <img 
           src={beforeImage}
           alt={beforeAlt}
@@ -29,11 +34,11 @@ const BeforeAfterSlider = ({
         />
       </div>
       
-      {/* After Image (Clipped) */}
+      {/* After Image (Right side) */}
       <div 
         className="absolute inset-0"
         style={{
-          clipPath: `inset(0 ${100 - sliderValue[0]}% 0 0)`
+          clipPath: `inset(0 0 0 ${sliderValue[0]}%)`
         }}
       >
         <img 
