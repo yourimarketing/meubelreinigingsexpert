@@ -8,6 +8,7 @@ import Hero from '@/components/Hero';
 import Reviews from '@/components/Reviews';
 import Footer from '@/components/Footer';
 import FloatingButtons from '@/components/FloatingButtons';
+import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 
 const Index = () => {
   useEffect(() => {
@@ -80,8 +81,44 @@ const Index = () => {
       <Header />
       <Hero />
       
-      {/* Quick Services Overview */}
+      {/* Before/After Interactive Slider Section */}
       <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Zie Het Verschil</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Sleep de slider om te zien hoe wij jouw meubels weer als nieuw maken
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden" style={{ aspectRatio: '16/10' }}>
+              <BeforeAfterSlider
+                beforeImage="/lovable-uploads/cea1426b-7648-4063-acc7-68834848b896.png"
+                afterImage="/lovable-uploads/4858c318-6195-4a05-a415-e63cbb915453.png"
+                beforeAlt="Vieze bank voor reiniging"
+                afterAlt="Schone bank na professionele reiniging"
+                className="h-full"
+              />
+            </div>
+            
+            <div className="text-center mt-8">
+              <p className="text-lg text-gray-600 mb-6">
+                Dit resultaat behaald met onze professionele dieptereiniging
+              </p>
+              <Link to="/contact">
+                <Button size="lg" className="text-lg px-8 py-4">
+                  Vraag Direct een Offerte Aan
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Quick Services Overview */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Onze Diensten</h2>
