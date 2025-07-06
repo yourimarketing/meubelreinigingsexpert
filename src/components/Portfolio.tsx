@@ -22,6 +22,66 @@ const Portfolio = () => {
       title: "Stoelen Reiniging - Voor & Na",
       description: "Grondige reiniging van stoelen met zichtbare resultaten",
       image: "/lovable-uploads/03cdd1ae-9e78-4ecb-b039-a298737fe29f.png"
+    },
+    {
+      id: 4,
+      title: "Hoekbank Dieptereiniging",
+      description: "Spectaculaire transformatie van een hoekbank met hardnekkige vlekken",
+      image: "/lovable-uploads/51719155-02b2-499c-9ca6-ee2839adb727.png"
+    },
+    {
+      id: 5,
+      title: "Leren Bank Restauratie",
+      description: "Van beschadigd leer naar perfect gereinigd resultaat",
+      image: "/lovable-uploads/6e6a08e2-ef2a-4ccb-ad82-7937d1ba7185.png"
+    },
+    {
+      id: 6,
+      title: "Hoekbank Vlekverwijdering",
+      description: "Complete verwijdering van hardnekkige vlekken uit hoekbank",
+      image: "/lovable-uploads/e9aeab97-606c-425d-93b6-18c6d354609c.png"
+    },
+    {
+      id: 7,
+      title: "Stoelkussen Reiniging",
+      description: "Professionele reiniging van stoelkussens met zichtbaar resultaat",
+      image: "/lovable-uploads/8476f9e2-a77a-4719-8787-5f80c3087c32.png"
+    },
+    {
+      id: 8,
+      title: "Bankstel Vlekverwijdering",
+      description: "Effectieve verwijdering van diverse vlekken uit bankstel",
+      image: "/lovable-uploads/a90b2816-375f-4854-b1cb-d664e4423c2b.png"
+    },
+    {
+      id: 9,
+      title: "Lichtgekleurde Bank Reiniging",
+      description: "Herstel van lichtgekleurde bank naar originele staat",
+      image: "/lovable-uploads/f3391daf-67be-4673-a699-724801ab95c3.png"
+    },
+    {
+      id: 10,
+      title: "Hoekbankstel Transformatie",
+      description: "Complete transformatie van een hoekbankstel met vlekken",
+      image: "/lovable-uploads/df3188a7-2b77-44fc-a156-fe80dab432cb.png"
+    },
+    {
+      id: 11,
+      title: "Grote Hoekbank Reiniging",
+      description: "Professionele reiniging van grote hoekbank met uitstekend resultaat",
+      image: "/lovable-uploads/2dce2dfe-7017-4738-8fcf-670c3602bf27.png"
+    },
+    {
+      id: 12,
+      title: "Donkere Bank Dieptereiniging",
+      description: "Intensieve reiniging van donkere bank met zichtbare verbetering",
+      image: "/lovable-uploads/e2a786b9-8340-4329-a921-e303dfd4e4ba.png"
+    },
+    {
+      id: 13,
+      title: "Modulaire Bank Reiniging",
+      description: "Complete reiniging van modulaire bank met perfecte resultaten",
+      image: "/lovable-uploads/55273858-294e-4ee2-a0f2-49df481a4029.png"
     }
   ];
 
