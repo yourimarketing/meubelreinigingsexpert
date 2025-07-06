@@ -48,27 +48,6 @@ const BeforeAfterSlider = ({
         />
       </div>
 
-      {/* Slider Controls */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-80 max-w-[90%]">
-        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-          <div className="flex justify-between text-white text-sm mb-2">
-            <span className="font-medium">VOOR</span>
-            <span className="font-medium">NA</span>
-          </div>
-          <Slider
-            value={sliderValue}
-            onValueChange={setSliderValue}
-            max={100}
-            min={0}
-            step={1}
-            className="w-full"
-          />
-          <div className="text-center text-white/80 text-xs mt-2">
-            Sleep om het verschil te zien
-          </div>
-        </div>
-      </div>
-
       {/* Divider Line */}
       <div 
         className="absolute top-0 bottom-0 w-0.5 bg-white shadow-lg z-10 pointer-events-none"
@@ -87,6 +66,18 @@ const BeforeAfterSlider = ({
         }}
       >
         <div className="w-4 h-4 border-2 border-gray-400 rounded-full bg-white"></div>
+      </div>
+
+      {/* Hidden Slider */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-full max-w-xs opacity-0">
+        <Slider
+          value={sliderValue}
+          onValueChange={setSliderValue}
+          max={100}
+          min={0}
+          step={1}
+          className="w-full"
+        />
       </div>
     </div>
   );
