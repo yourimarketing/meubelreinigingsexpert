@@ -7,7 +7,7 @@ const Hero = () => {
       {/* Hero Background with Logo */}
       <div className="absolute inset-0 w-full h-full">
         <img 
-          src="/lovable-uploads/373ec8d4-2088-4464-9c71-cd08a148db35.png" 
+          src="/lovable-uploads/45a4b36a-44c1-4aba-abf1-2f8d1bb86210.png" 
           alt="Meubel Reiniging Expert Logo"
           className="w-full h-full object-cover"
         />
