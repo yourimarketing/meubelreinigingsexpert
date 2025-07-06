@@ -32,9 +32,11 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">M</span>
-            </div>
+            <img 
+              src="/lovable-uploads/c71f8de9-2143-4b03-9c73-ff0d62c9fec3.png" 
+              alt="Meubelreiniging Expert Logo" 
+              className="w-12 h-12 object-contain"
+            />
             <span className="text-2xl font-bold text-gray-900">Meubelreiniging Expert</span>
           </div>
 
