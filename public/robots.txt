@@ -1,14 +1,15 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+
+# Important pages
+Allow: /diensten
+Allow: /portfolio
+Allow: /over-ons
+Allow: /contact
+
+# Block admin areas if any
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://meubelreiniginsexpert.nl/sitemap.xml

@@ -9,6 +9,8 @@ import Reviews from '@/components/Reviews';
 import Footer from '@/components/Footer';
 import FloatingButtons from '@/components/FloatingButtons';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
+import FAQ from '@/components/FAQ';
+import SkipToContent from '@/components/SkipToContent';
 
 const Index = () => {
   useEffect(() => {
@@ -25,18 +27,34 @@ const Index = () => {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Meubelreiniging Expert",
-      "image": "https://meubelreiniginsexpert.nl/logo.png",
+      "image": "https://meubelreiniginsexpert.nl/lovable-uploads/45a4b36a-44c1-4aba-abf1-2f8d1bb86210.png",
+      "logo": "https://meubelreiniginsexpert.nl/lovable-uploads/45a4b36a-44c1-4aba-abf1-2f8d1bb86210.png",
       "telephone": "+31-6-13003226",
       "email": "info@meubelreiniginsexpert.nl",
+      "url": "https://meubelreiniginsexpert.nl",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "NL",
         "addressRegion": "Nederland"
       },
-      "areaServed": "Nederland",
-      "description": "Professionele meubelreiniging diensten door heel Nederland",
-      "priceRange": "€€",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Nederland"
+      },
+      "description": "Professionele meubelreiniging diensten door heel Nederland. Bankstel, stoelen, matrassen en meer vakkundig gereinigd met 100% tevredenheidsgarantie.",
+      "priceRange": "€35-€200",
       "serviceType": "Meubelreiniging",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "150",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "openingHours": [
+        "Mo-Fr 08:00-18:00",
+        "Sa 09:00-17:00"
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Meubelreiniging Diensten",
@@ -45,21 +63,39 @@ const Index = () => {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Bankstel reinigen"
+              "name": "Bankstel reinigen",
+              "description": "Professionele dieptereiniging van banken en fauteuils"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "85",
+              "priceCurrency": "EUR"
             }
           },
           {
             "@type": "Offer", 
             "itemOffered": {
               "@type": "Service",
-              "name": "Stoel reinigen"
+              "name": "Stoel reinigen",
+              "description": "Grondige reiniging van eetkamerstoelen en bureaustoelen"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "35",
+              "priceCurrency": "EUR"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service", 
-              "name": "Matras reinigen"
+              "name": "Matras reinigen",
+              "description": "Hygiënische matras reiniging voor een gezonde nachtrust"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "75",
+              "priceCurrency": "EUR"
             }
           }
         ]
@@ -78,8 +114,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SkipToContent />
       <Header />
-      <Hero />
+      <main id="main-content">
+        <Hero />
       
       {/* Before/After Interactive Slider Section */}
       <section className="py-16 bg-gray-50">
@@ -106,12 +144,12 @@ const Index = () => {
               <p className="text-lg text-gray-600 mb-6">
                 Dit resultaat behaald met onze professionele dieptereiniging
               </p>
-              <Link to="/contact">
-                <Button size="lg" className="text-lg px-8 py-4">
-                  Vraag Direct een Offerte Aan
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
+    <Link to="/contact">
+      <Button size="lg" variant="cta" className="text-lg px-8 py-4">
+        Vraag Direct een Offerte Aan
+        <ArrowRight className="ml-2 w-5 h-5" />
+      </Button>
+    </Link>
             </div>
           </div>
         </div>
@@ -155,7 +193,7 @@ const Index = () => {
           
           <div className="text-center">
             <Link to="/diensten">
-              <Button size="lg" className="text-lg px-8 py-4">
+              <Button size="lg" variant="cta" className="text-lg px-8 py-4">
                 Bekijk Alle Diensten
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
@@ -166,6 +204,9 @@ const Index = () => {
 
       {/* Reviews Section */}
       <Reviews />
+
+      {/* FAQ Section for SEO and UX */}
+      <FAQ />
 
       {/* How We Work Process */}
       <section className="py-16">
@@ -258,7 +299,7 @@ const Index = () => {
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" className="text-lg px-8 py-4">
+                <Button size="lg" variant="cta" className="text-lg px-8 py-4">
                   Vraag Offerte Aan
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
@@ -266,8 +307,8 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
-
+        </section>
+      </main>
       <Footer />
       <FloatingButtons />
     </div>

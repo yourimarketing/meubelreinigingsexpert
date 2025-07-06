@@ -11,12 +11,14 @@ const Hero = () => {
           src="/lovable-uploads/45a4b36a-44c1-4aba-abf1-2f8d1bb86210.png" 
           alt="Meubel Reiniging Expert Logo"
           className="hidden md:block w-full h-full object-cover"
+          loading="eager"
         />
         {/* Mobile Logo */}
         <img 
           src="/lovable-uploads/26211235-f28a-4966-9e74-9dcd875a63a5.png" 
           alt="Meubel Reiniging Expert Logo"
           className="block md:hidden w-full h-full object-cover"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-blue-800/30 to-blue-900/40"></div>
       </div>
@@ -35,13 +37,13 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link to="/contact">
-              <Button size="lg" className="text-lg px-8 py-4 hover-scale">
+              <Button size="lg" variant="cta" className="text-lg px-8 py-4 hover-scale">
                 Vraag Direct een Offerte Aan
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
             <Link to="/portfolio">
-              <Button size="lg" variant="outline" className="text-lg px-8 py-4 hover-scale">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-4 hover-scale bg-white/10 border-white/20 text-white hover:bg-white/20">
                 Bekijk Resultaten
               </Button>
             </Link>

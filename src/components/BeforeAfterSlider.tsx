@@ -69,7 +69,7 @@ const BeforeAfterSlider = ({
   return (
     <div 
       ref={containerRef}
-      className={`relative w-full h-full cursor-col-resize select-none ${className}`}
+      className={`relative w-full h-full cursor-col-resize select-none touch-pan-x ${className}`}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
@@ -77,6 +77,8 @@ const BeforeAfterSlider = ({
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      role="img"
+      aria-label="Voor en na vergelijking van meubelreiniging"
     >
       {/* Before Image (Left side) */}
       <div 
@@ -89,6 +91,7 @@ const BeforeAfterSlider = ({
           src={beforeImage}
           alt={beforeAlt}
           className="w-full h-full object-cover"
+          loading="lazy"
         />
       </div>
       
@@ -103,6 +106,7 @@ const BeforeAfterSlider = ({
           src={afterImage}
           alt={afterAlt}
           className="w-full h-full object-cover"
+          loading="lazy"
         />
       </div>
 

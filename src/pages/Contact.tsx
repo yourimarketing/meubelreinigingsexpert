@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import BookingSection from '@/components/BookingSection';
 import Footer from '@/components/Footer';
 import FloatingButtons from '@/components/FloatingButtons';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 const Contact = () => {
   useEffect(() => {
@@ -17,7 +18,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <main className="pt-20">
+      <Breadcrumbs />
+      <main className="pt-4">
         <BookingSection />
       </main>
       <Footer />

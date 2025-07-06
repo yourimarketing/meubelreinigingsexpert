@@ -5,6 +5,7 @@ import WhatsAppPhotos from '@/components/WhatsAppPhotos';
 import Reviews from '@/components/Reviews';
 import Footer from '@/components/Footer';
 import FloatingButtons from '@/components/FloatingButtons';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 const PortfolioPage = () => {
   useEffect(() => {
@@ -19,7 +20,8 @@ const PortfolioPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <main className="pt-20">
+      <Breadcrumbs />
+      <main className="pt-4">
         <Portfolio />
         <WhatsAppPhotos />
         <Reviews />

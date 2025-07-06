@@ -36,6 +36,7 @@ const Header = () => {
               src="/lovable-uploads/8f9b5045-d8a4-4429-9063-896083ce9c7d.png" 
               alt="Meubelreiniging Expert Logo" 
               className="w-12 h-12 object-contain"
+              loading="lazy"
             />
             <span className="text-2xl font-bold text-white">Meubelreiniging Expert</span>
           </div>
