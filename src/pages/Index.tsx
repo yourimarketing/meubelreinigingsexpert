@@ -119,7 +119,7 @@ const Index = () => {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden" style={{
               aspectRatio: '16/10'
             }}>
-              <BeforeAfterSlider beforeImage="/lovable-uploads/cea1426b-7648-4063-acc7-68834848b896.png" afterImage="/lovable-uploads/4858c318-6195-4a05-a415-e63cbb915453.png" beforeAlt="Vieze bank voor reiniging" afterAlt="Schone bank na professionele reiniging" className="h-full" />
+              <BeforeAfterSlider beforeImage="/lovable-uploads/4ae2a498-192b-465f-9196-d6ff81efeb56.png" afterImage="/lovable-uploads/f79b45bc-faae-487b-ad03-11edf3aff337.png" beforeAlt="Vieze bank voor reiniging" afterAlt="Schone bank na professionele reiniging" className="h-full" />
             </div>
             
             <div className="text-center mt-8">
