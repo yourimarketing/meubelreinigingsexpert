@@ -2,16 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import BeforeAfterSlider from './BeforeAfterSlider';
 const Hero = () => {
   return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Before/After Image Background */}
+      {/* Interactive Before/After Slider Background */}
       <div className="absolute inset-0 w-full h-full">
-        <img 
-          src="/lovable-uploads/631f88af-c9d4-4d88-be7f-5c5314ec3714.png" 
-          alt="Before and After meubelreiniging resultaten"
-          className="w-full h-full object-cover object-center"
+        <BeforeAfterSlider
+          beforeImage="/lovable-uploads/cea1426b-7648-4063-acc7-68834848b896.png"
+          afterImage="/lovable-uploads/4858c318-6195-4a05-a415-e63cbb915453.png"
+          beforeAlt="Vieze bank voor reiniging"
+          afterAlt="Schone bank na professionele reiniging"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-blue-900/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 via-blue-800/40 to-blue-900/50"></div>
       </div>
       
       <div className="container mx-auto px-4 py-32 relative z-10">
