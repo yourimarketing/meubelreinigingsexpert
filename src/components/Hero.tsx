@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="absolute inset-0 w-full h-full">
         {/* Desktop Logo */}
         <img 
-          src="/lovable-uploads/45a4b36a-44c1-4aba-abf1-2f8d1bb86210.png" 
+          src="/lovable-uploads/465eb651-8971-4d65-886a-620ad6b2ec79.png" 
           alt="Meubel Reiniging Expert Logo"
           className="hidden md:block w-full h-full object-cover"
           loading="eager"
