@@ -126,6 +126,50 @@ const Index = () => {
         </div>
       </section>
 
+      {/* How We Work Process */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Hoe Gaan Wij Te Werk?</h2>
+            <p className="text-xl text-gray-600">Eenvoudig en transparant proces</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-green-600">1</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Foto's Sturen</h3>
+              <p className="text-gray-600">Stuur foto's van uw meubels via WhatsApp voor een accurate offerte</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-blue-600">2</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Afspraak Maken</h3>
+              <p className="text-gray-600">Binnen 24 uur een afspraak op een moment dat u uitkomt</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-purple-600">3</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Professioneel Reinigen</h3>
+              <p className="text-gray-600">Dieptereiniging met professionele apparatuur en middelen</p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <Link to="/diensten">
+              <Button variant="outline" size="lg">
+                Bekijk Volledige Werkwijze
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us Preview */}
       <section className="py-16">
         <div className="container mx-auto px-4">
