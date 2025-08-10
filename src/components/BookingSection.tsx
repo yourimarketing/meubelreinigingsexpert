@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -6,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Phone } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const BookingSection = () => {
   const { toast } = useToast();
@@ -20,14 +22,50 @@ const BookingSection = () => {
     email: '',
     opmerkingen: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    console.log('[BookingSection] Submitting form data:', formData);
+
+    const { data, error } = await supabase.functions.invoke('send-booking-emails', {
+      body: {
+        ...formData,
+      },
+    });
+
+    if (error) {
+      console.error('[BookingSection] Email send error:', error);
+      toast({
+        title: "Er ging iets mis",
+        description: "We konden uw aanvraag niet verzenden. Probeer het later opnieuw of neem direct contact op.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    console.log('[BookingSection] Email send success:', data);
     toast({
       title: "Offerte aanvraag verzonden!",
-      description: "We nemen binnen 24 uur contact met u op."
+      description: "We nemen binnen 24 uur contact met u op.",
     });
-    // Here you would typically send the form data to your backend
+
+    // Reset form
+    setFormData({
+      naam: '',
+      postcode: '',
+      woonplaats: '',
+      meubeltype: '',
+      aantal: '',
+      datum: '',
+      telefoon: '',
+      email: '',
+      opmerkingen: ''
+    });
+
+    setIsSubmitting(false);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -171,8 +209,8 @@ const BookingSection = () => {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full">
-                  Verstuur Offerte Aanvraag
+                <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? 'Versturen...' : 'Verstuur Offerte Aanvraag'}
                 </Button>
               </form>
             </CardContent>
