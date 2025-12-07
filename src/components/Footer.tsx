@@ -17,7 +17,7 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
-                <span>+316 13 00 32 26</span>
+                <span>+31 23 234 1949</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
@@ -41,10 +41,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Snel Contact</h3>
             <div className="space-y-4">
-              <button onClick={() => window.open('tel:+31613003226', '_self')} className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+              <button onClick={() => window.open('tel:+31232341949', '_self')} className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
                 Direct Bellen
               </button>
-              <button onClick={() => window.open('https://wa.me/31613003226?text=Hallo, ik wil graag een offerte voor meubelreiniging', '_blank')} className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
+              <button onClick={() => window.open('https://wa.me/31232341949?text=Hallo, ik wil graag een offerte voor meubelreiniging', '_blank')} className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
                 WhatsApp
               </button>
               <button onClick={() => document.getElementById('boek-nu')?.scrollIntoView({

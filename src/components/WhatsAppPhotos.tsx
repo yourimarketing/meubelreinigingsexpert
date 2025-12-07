@@ -29,10 +29,10 @@ const WhatsAppPhotos = () => {
                   size="lg"
                   variant="secondary"
                   className="w-full text-lg py-4"
-                  onClick={() => window.open('https://wa.me/31613003226?text=Hallo, ik wil graag foto\'s sturen voor een offerte', '_blank')}
+                  onClick={() => window.open('https://wa.me/31232341949?text=Hallo, ik wil graag foto\'s sturen voor een offerte', '_blank')}
                 >
                   <MessageSquare className="mr-2 w-5 h-5" />
-                  WhatsApp: 06 - 13 00 32 26
+                  WhatsApp: +31 23 234 1949
                 </Button>
               </CardContent>
             </Card>

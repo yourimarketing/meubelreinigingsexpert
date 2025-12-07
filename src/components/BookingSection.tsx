@@ -226,9 +226,9 @@ const BookingSection = () => {
                   variant="secondary" 
                   size="lg"
                   className="w-full"
-                  onClick={() => window.open('tel:+31613003226', '_self')}
+                  onClick={() => window.open('tel:+31232341949', '_self')}
                 >
-                  Bel Nu: 06 - 13 00 32 26
+                  Bel Nu: +31 23 234 1949
                 </Button>
               </CardContent>
             </Card>
@@ -242,7 +242,7 @@ const BookingSection = () => {
                   variant="secondary" 
                   size="lg"
                   className="w-full"
-                  onClick={() => window.open('https://wa.me/31613003226?text=Hallo, ik wil graag een offerte voor meubelreiniging', '_blank')}
+                  onClick={() => window.open('https://wa.me/31232341949?text=Hallo, ik wil graag een offerte voor meubelreiniging', '_blank')}
                 >
                   WhatsApp Ons
                 </Button>
