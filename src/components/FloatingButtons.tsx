@@ -26,7 +26,7 @@ const FloatingButtons = () => {
       <Button
         size="lg"
         className="w-14 h-14 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover-scale p-0"
-        onClick={() => window.open('https://wa.me/31613003226?text=Hallo, ik wil graag contact opnemen voor meubelreiniging', '_blank')}
+        onClick={() => window.open('https://wa.me/31232341949?text=Hallo, ik wil graag contact opnemen voor meubelreiniging', '_blank')}
         aria-label="WhatsApp contact"
       >
         <MessageSquare className="w-6 h-6" />
@@ -36,7 +36,7 @@ const FloatingButtons = () => {
       <Button
         size="lg"
         className="w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover-scale p-0"
-        onClick={() => window.open('tel:+31613003226', '_self')}
+        onClick={() => window.open('tel:+31232341949', '_self')}
         aria-label="Bel direct"
       >
         <Phone className="w-6 h-6" />

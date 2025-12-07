@@ -79,13 +79,13 @@ const FAQ = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => window.open('tel:+31613003226', '_self')}
+              onClick={() => window.open('tel:+31232341949', '_self')}
               className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary-hover transition-colors"
             >
-              Bel ons direct: 06 - 13 00 32 26
+              Bel ons direct: +31 23 234 1949
             </button>
             <button 
-              onClick={() => window.open('https://wa.me/31613003226?text=Hallo, ik heb een vraag over meubelreiniging', '_blank')}
+              onClick={() => window.open('https://wa.me/31232341949?text=Hallo, ik heb een vraag over meubelreiniging', '_blank')}
               className="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
             >
               WhatsApp ons
