@@ -7,6 +7,12 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+interface FotoAttachment {
+  filename: string;
+  content: string; // base64
+  content_type: string;
+}
+
 interface BookingRequest {
   naam: string;
   postcode: string;
@@ -17,6 +23,7 @@ interface BookingRequest {
   telefoon: string;
   email: string;
   opmerkingen?: string;
+  fotos?: FotoAttachment[];
 }
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
@@ -25,7 +32,13 @@ const ADMIN_EMAIL = "info@meubelreinigingexpert.nl";
 const FROM_PRIMARY = "Meubel Reiniging Expert <info@meubelreinigingexpert.nl>";
 const FROM_FALLBACK = "Lovable <onboarding@resend.dev>";
 
-const buildAdminHtml = (payload: BookingRequest) => `
+const buildAdminHtml = (payload: BookingRequest) => {
+  const fotoCount = payload.fotos?.length ?? 0;
+  const fotoNotice = fotoCount > 0
+    ? `<tr><td colspan="2" style="padding:14px 0;"><div style="padding:12px 16px; background:#dbeafe; border-radius:8px; color:hsl(214,100%,36%); font-weight:600;">📎 ${fotoCount} foto${fotoCount > 1 ? "'s" : ''} bijgevoegd — zie bijlagen van deze email</div></td></tr>`
+    : '';
+
+  return `
   <!doctype html>
   <html>
     <head>
@@ -84,6 +97,7 @@ const buildAdminHtml = (payload: BookingRequest) => `
                       <td style="padding:10px 0; width:180px; color:#6b7280; vertical-align:top;">Opmerkingen</td>
                       <td style="padding:10px 0;">${payload.opmerkingen ? payload.opmerkingen.replace(/\n/g, '<br/>') : '-'}</td>
                     </tr>
+                    ${fotoNotice}
                   </table>
 
                   <div style="margin-top:20px;">
@@ -104,9 +118,14 @@ const buildAdminHtml = (payload: BookingRequest) => `
     </body>
   </html>
 `;
+};
 
+const buildCustomerHtml = (payload: BookingRequest) => {
+  const fotoLine = (payload.fotos?.length ?? 0) > 0
+    ? `<p style="margin:12px 0; color:#374151;">📎 Uw ${payload.fotos!.length} foto${payload.fotos!.length > 1 ? "'s" : ''} ${payload.fotos!.length > 1 ? 'zijn' : 'is'} succesvol ontvangen en worden meegenomen in onze beoordeling.</p>`
+    : '';
 
-const buildCustomerHtml = (payload: BookingRequest) => `
+  return `
   <!doctype html>
   <html>
     <head>
@@ -129,6 +148,8 @@ const buildCustomerHtml = (payload: BookingRequest) => `
                 <td style="padding:24px;">
                   <p style="margin:0 0 12px 0; font-size:16px;">Beste ${payload.naam},</p>
                   <p style="margin:0 0 16px 0; color:#374151;">Hartelijk dank voor uw offerte-aanvraag bij Meubel Reiniging Expert. We hebben uw bericht ontvangen en nemen binnen 24 uur contact met u op.</p>
+
+                  ${fotoLine}
 
                   <div style="margin:16px 0; padding:12px 16px; background:#f3f4f6; border-radius:8px;">
                     <div style="font-weight:700; margin-bottom:8px;">Samenvatting van uw aanvraag</div>
@@ -156,10 +177,10 @@ const buildCustomerHtml = (payload: BookingRequest) => `
                     </table>
                   </div>
 
-                  <p style="margin:16px 0; color:#374151;">Heeft u nog vragen? Antwoord gerust op deze e-mail of bel ons via <a href="tel:+31613003226" style="color:hsl(214,100%,36%); text-decoration:underline;">06 - 13 00 32 26</a>.</p>
+                  <p style="margin:16px 0; color:#374151;">Heeft u nog vragen? Antwoord gerust op deze e-mail of bel ons via <a href="tel:+31232341949" style="color:hsl(214,100%,36%); text-decoration:underline;">+31 23 234 1949</a>.</p>
 
                   <div style="margin-top:12px;">
-                    <a href="tel:+31613003226" style="display:inline-block; padding:12px 20px; background:hsl(214,100%,36%); color:#ffffff; text-decoration:none; border-radius:8px; font-weight:700;">Bel direct</a>
+                    <a href="tel:+31232341949" style="display:inline-block; padding:12px 20px; background:hsl(214,100%,36%); color:#ffffff; text-decoration:none; border-radius:8px; font-weight:700;">Bel direct</a>
                   </div>
 
                   <p style="margin-top:20px;">Met vriendelijke groet,<br/>Meubel Reiniging Expert</p>
@@ -177,6 +198,7 @@ const buildCustomerHtml = (payload: BookingRequest) => `
     </body>
   </html>
 `;
+};
 
 
 serve(async (req) => {
@@ -186,7 +208,7 @@ serve(async (req) => {
 
   try {
     const payload = (await req.json()) as BookingRequest;
-    console.log("[send-booking-emails] Payload received:", payload);
+    console.log("[send-booking-emails] Payload received (fotos count):", payload.fotos?.length ?? 0);
 
     const required = ["naam", "email", "telefoon", "meubeltype", "postcode", "woonplaats"] as const;
     const missing = required.filter((k) => !payload[k] || String(payload[k]).trim() === "");
@@ -198,14 +220,30 @@ serve(async (req) => {
       );
     }
 
+    // Validate fotos
+    if (payload.fotos && payload.fotos.length > 5) {
+      return new Response(
+        JSON.stringify({ error: "Maximaal 5 foto's toegestaan" }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    // Build Resend attachments from base64 fotos
+    const attachments = (payload.fotos ?? []).map((foto) => ({
+      filename: foto.filename,
+      content: foto.content, // Resend accepts base64 strings
+      content_type: foto.content_type,
+    }));
+
     // Try with the primary domain first
     try {
       const adminRes = await resend.emails.send({
         from: FROM_PRIMARY,
         to: [ADMIN_EMAIL],
-        subject: "Nieuwe offerte-aanvraag via website",
+        subject: `Nieuwe offerte-aanvraag via website${attachments.length > 0 ? ` (${attachments.length} foto's)` : ''}`,
         html: buildAdminHtml(payload),
         reply_to: payload.email,
+        attachments: attachments.length > 0 ? attachments : undefined,
       });
       console.log("[send-booking-emails] Admin email sent:", adminRes);
 
@@ -218,13 +256,13 @@ serve(async (req) => {
       console.log("[send-booking-emails] Customer email sent:", customerRes);
     } catch (primaryError) {
       console.warn("[send-booking-emails] Primary send failed, trying fallback sender:", primaryError);
-      // Fallback to onboarding@resend.dev if domain not yet verified
       const adminFallbackRes = await resend.emails.send({
         from: FROM_FALLBACK,
         to: [ADMIN_EMAIL],
-        subject: "Nieuwe offerte-aanvraag via website",
+        subject: `Nieuwe offerte-aanvraag via website${attachments.length > 0 ? ` (${attachments.length} foto's)` : ''}`,
         html: buildAdminHtml(payload),
         reply_to: payload.email,
+        attachments: attachments.length > 0 ? attachments : undefined,
       });
       console.log("[send-booking-emails] Admin email sent (fallback):", adminFallbackRes);
 

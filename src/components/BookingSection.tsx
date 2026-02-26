@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Phone } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import PhotoUpload from './PhotoUpload';
 
 const BookingSection = () => {
   const { toast } = useToast();
@@ -23,15 +24,34 @@ const BookingSection = () => {
     opmerkingen: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [photos, setPhotos] = useState<File[]>([]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     console.log('[BookingSection] Submitting form data:', formData);
 
+    // Convert photos to base64
+    const fotosPayload = await Promise.all(
+      photos.map(async (file) => {
+        const buffer = await file.arrayBuffer();
+        const bytes = new Uint8Array(buffer);
+        let binary = '';
+        for (let i = 0; i < bytes.length; i++) {
+          binary += String.fromCharCode(bytes[i]);
+        }
+        return {
+          filename: file.name,
+          content: btoa(binary),
+          content_type: file.type,
+        };
+      })
+    );
+
     const { data, error } = await supabase.functions.invoke('send-booking-emails', {
       body: {
         ...formData,
+        fotos: fotosPayload.length > 0 ? fotosPayload : undefined,
       },
     });
 
@@ -64,6 +84,7 @@ const BookingSection = () => {
       email: '',
       opmerkingen: ''
     });
+    setPhotos([]);
 
     setIsSubmitting(false);
   };
@@ -208,6 +229,8 @@ const BookingSection = () => {
                     placeholder="Beschrijf hier eventuele vlekken, geuren of andere bijzonderheden..."
                   />
                 </div>
+
+                <PhotoUpload files={photos} onChange={setPhotos} />
 
                 <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
                   {isSubmitting ? 'Versturen...' : 'Verstuur Offerte Aanvraag'}
