@@ -29,7 +29,7 @@ interface BookingRequest {
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
 const ADMIN_EMAIL = "info@meubelreinigingexpert.nl";
-const FROM_PRIMARY = "Meubel Reiniging Expert <info@meubelreinigingexpert.nl>";
+const FROM_PRIMARY = "Meubel Reiniging Expert <noreply@meubelreinigingexpert.nl>";
 const FROM_FALLBACK = "Lovable <onboarding@resend.dev>";
 
 const buildAdminHtml = (payload: BookingRequest) => {
