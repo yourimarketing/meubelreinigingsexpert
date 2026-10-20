@@ -237,14 +237,20 @@ serve(async (req) => {
 
     // Try with the primary domain first
     try {
-      const adminRes = await resend.emails.send({
-        from: FROM_PRIMARY,
+      // Admin email comes from an external address (not our own domain) so the
+      // own-domain spam filter does not block it; fall back to own domain on error.
+      const adminMsg = {
         to: [ADMIN_EMAIL],
         subject: `Nieuwe offerte-aanvraag via website${attachments.length > 0 ? ` (${attachments.length} foto's)` : ''}`,
         html: buildAdminHtml(payload),
         reply_to: payload.email,
         attachments: attachments.length > 0 ? attachments : undefined,
-      });
+      };
+      let adminRes = await resend.emails.send({ from: FROM_FALLBACK, ...adminMsg });
+      if ((adminRes as any)?.error) {
+        console.warn("[send-booking-emails] External sender failed, using own domain:", (adminRes as any).error);
+        adminRes = await resend.emails.send({ from: FROM_PRIMARY, ...adminMsg });
+      }
       console.log("[send-booking-emails] Admin email sent:", adminRes);
 
       const customerRes = await resend.emails.send({
