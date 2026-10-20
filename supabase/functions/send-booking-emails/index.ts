@@ -29,6 +29,7 @@ interface BookingRequest {
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
 const ADMIN_EMAIL = "info@meubelreinigingexpert.nl";
+const OWNER_EMAIL = "yinokis@hotmail.com";
 const FROM_PRIMARY = "Meubel Reiniging Expert <noreply@meubelreinigingexpert.nl>";
 const FROM_FALLBACK = "Lovable <onboarding@resend.dev>";
 
@@ -237,20 +238,18 @@ serve(async (req) => {
 
     // Try with the primary domain first
     try {
-      // Admin email comes from an external address (not our own domain) so the
-      // own-domain spam filter does not block it; fall back to own domain on error.
       const adminMsg = {
-        to: [ADMIN_EMAIL],
         subject: `Nieuwe offerte-aanvraag via website${attachments.length > 0 ? ` (${attachments.length} foto's)` : ''}`,
         html: buildAdminHtml(payload),
         reply_to: payload.email,
         attachments: attachments.length > 0 ? attachments : undefined,
       };
-      let adminRes = await resend.emails.send({ from: FROM_FALLBACK, ...adminMsg });
-      if ((adminRes as any)?.error) {
-        console.warn("[send-booking-emails] External sender failed, using own domain:", (adminRes as any).error);
-        adminRes = await resend.emails.send({ from: FROM_PRIMARY, ...adminMsg });
-      }
+      // Copy to the Resend account owner from the external Resend address
+      // (only allowed recipient for that sender) — bypasses own-domain spam filter.
+      const ownerRes = await resend.emails.send({ from: FROM_FALLBACK, to: [OWNER_EMAIL], ...adminMsg });
+      console.log("[send-booking-emails] Owner email sent:", ownerRes);
+      // Also to the business mailbox from the own verified domain.
+      const adminRes = await resend.emails.send({ from: FROM_PRIMARY, to: [ADMIN_EMAIL], ...adminMsg });
       console.log("[send-booking-emails] Admin email sent:", adminRes);
 
       const customerRes = await resend.emails.send({
